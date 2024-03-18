@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: zoho-deployment
+spec:
+  replicas: 1  # Number of desired replicas
+  selector:
+    matchLabels:
+      app: zoho
+  template:
+    metadata:
+      labels:
+        app: zoho
+    spec:
+      containers:
+      - name: zoho
+        image: mohammadthaheer/zoho:latest
+        ports:
+        - containerPort: 3000  # Port your application listens on
